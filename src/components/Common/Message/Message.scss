@@ -1,0 +1,13 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.message {
+  display: flex;
+  justify-content: flex-start;
+  &__error {
+    color: $color_danger;
+  }
+
+  &__success {
+    color: $color_success;
+  }
+}

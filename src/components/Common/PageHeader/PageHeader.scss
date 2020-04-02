@@ -1,0 +1,15 @@
+.pageheader {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+}

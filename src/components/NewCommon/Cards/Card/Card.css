@@ -1,0 +1,5 @@
+/** Needed for react-collapse (do not remove or collapsible components will no longer have animation) */
+
+.ReactCollapse--collapse {
+	transition: height 500ms;
+}
