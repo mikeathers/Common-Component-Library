@@ -4,7 +4,7 @@ import StyledHeader from './HeaderStyle';
 const Header = () => {
 	return (
 		<StyledHeader>
-			<h1>ExamWorks Component Library</h1>
+			<h1>Common Component Library</h1>
 		</StyledHeader>
 	);
 };
