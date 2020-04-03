@@ -9,7 +9,7 @@ import * as S from './TableSearch.styles';
  *    - searchTerm (string) - String used to filter the tableData list
  *  - props
  *    - tableData (array[]) - Data passed in to be filtered
- * 		- returnFilteredItems (function) - returns filtered list of data to parent component
+ * 		- returnFilteredItems (function) - Returns filtered list of data to parent component
  */
 
 class TableSearch extends Component {
@@ -34,7 +34,8 @@ class TableSearch extends Component {
 		return (
 			<S.TableSearch data-test="common-data-table-search">
 				<Input
-					fullWidth={false}
+					search
+					placeholder="Search"
 					data-test="common-data-table-search-input"
 					name="commonDataTableSearchInput"
 					onChange={this.handleInputChange}

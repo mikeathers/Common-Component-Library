@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Collapse } from 'react-collapse';
 import DefaultCard from './DefaultCard/DefaultCard';
 import TabbedCard from './TabbedCard/TabbedCard';
-import * as S from './Card.styles';
 import './Card.css';
 
 /**

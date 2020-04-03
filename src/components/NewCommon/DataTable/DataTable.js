@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import * as S from './DataTable.styles';
 import TableHeader from './TableHeader/TableHeader';
 import TableBody from './TableBody/TableBody';

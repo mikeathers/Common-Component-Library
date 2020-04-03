@@ -4,18 +4,19 @@ import * as S from './AppStyles';
 import Header from 'components/Header/Header';
 import Buttons from 'components/Buttons/Buttons';
 import Cards from 'components/Cards/Cards';
+import Inputs from 'components/Inputs/Inputs';
 import DataTable from 'components/DataTable/DataTable';
 
 export default class App extends Component {
 	state = {
-		headerContainerOpen: false,
+		inputsContainerOpen: true,
 		buttonContainerOpen: false,
 		cardContainerOpen: false,
-		dataTableContainerOpen: true,
+		dataTableContainerOpen: false,
 	};
 	render() {
 		const {
-			headerContainerOpen,
+			inputsContainerOpen,
 			buttonContainerOpen,
 			cardContainerOpen,
 			dataTableContainerOpen,
@@ -40,6 +41,19 @@ export default class App extends Component {
 					</S.TitleContainer>
 					<Collapse isOpened={buttonContainerOpen}>
 						<Buttons />
+					</Collapse>
+				</S.Container>
+
+				{/* Inputs */}
+				<S.Container>
+					<S.TitleContainer>
+						<S.Title>Inputs</S.Title>
+						<S.CollapseButton onClick={() => collpaseContainer('inputs')}>
+							{inputsContainerOpen ? 'Close' : 'Open'}
+						</S.CollapseButton>
+					</S.TitleContainer>
+					<Collapse isOpened={inputsContainerOpen}>
+						<Inputs />
 					</Collapse>
 				</S.Container>
 
