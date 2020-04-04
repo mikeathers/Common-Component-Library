@@ -13,12 +13,12 @@ import * as S from './TableSearch.styles';
  */
 
 class TableSearch extends Component {
-	handleInputChange = e => this.filterResults(e.target.value);
-	filterResults = searchTerm => {
-		const { tableData, searchInProgress } = this.props;
+	handleInputChange = (e) => this.filterResults(e.target.value);
+	filterResults = (searchTerm) => {
+		const { tableData, searchInProgress, returnFilteredItems } = this.props;
 		let isMatch = '';
 		searchTerm ? searchInProgress(true) : searchInProgress(false);
-		const filteredList = tableData.filter(row => {
+		const filteredList = tableData.filter((row) => {
 			for (let value of Object.values(row)) {
 				isMatch = value
 					.toString()
@@ -28,7 +28,7 @@ class TableSearch extends Component {
 			}
 			return null;
 		});
-		this.props.returnFilteredItems(filteredList);
+		returnFilteredItems(filteredList);
 	};
 	render() {
 		return (

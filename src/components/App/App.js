@@ -9,10 +9,10 @@ import DataTable from 'components/DataTable/DataTable';
 
 export default class App extends Component {
 	state = {
-		inputsContainerOpen: true,
+		inputsContainerOpen: false,
 		buttonContainerOpen: false,
 		cardContainerOpen: false,
-		dataTableContainerOpen: false,
+		dataTableContainerOpen: true,
 	};
 	render() {
 		const {
@@ -21,9 +21,9 @@ export default class App extends Component {
 			cardContainerOpen,
 			dataTableContainerOpen,
 		} = this.state;
-		const collpaseContainer = containerToCollapse => {
+		const collpaseContainer = (containerToCollapse) => {
 			const parsedText = `${containerToCollapse}ContainerOpen`;
-			this.setState(prevState => ({
+			this.setState((prevState) => ({
 				[parsedText]: !prevState[parsedText],
 			}));
 		};

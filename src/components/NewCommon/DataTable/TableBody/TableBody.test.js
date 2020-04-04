@@ -47,9 +47,20 @@ describe('Common DataTable - TableBody', () => {
 			{ id: 6, type: 'Train', color: 'Red' },
 		];
 		const wrapper = setup({ tableData });
+		const tableBody = findByTestAttr(wrapper, 'common-data-table-body');
 
 		// Assert
-		const tableBody = findByTestAttr(wrapper, 'common-data-table-body');
 		expect(tableBody.find(TableRow).length).toBe(tableData.length);
+	});
+
+	test('displays a no table data found message when "tableData" is null or empty', () => {
+		// Arrange
+		const wrapper = setup({ tableData: [] });
+		const tableBody = findByTestAttr(wrapper, 'common-data-table-body');
+
+		// Assert
+		expect(tableBody.find('CommonDataTableNoDataFoundMessage').text()).toBe(
+			'No table data has been found...'
+		);
 	});
 });

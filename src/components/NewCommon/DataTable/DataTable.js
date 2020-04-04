@@ -21,10 +21,33 @@ class DataTable extends Component {
 		filteredItems: [],
 		searchInProgress: false,
 	};
-	handleSearchInProgress = searchInProgress =>
+	componentDidMount() {
+		this.orderTableData();
+	}
+
+	handleSearchInProgress = (searchInProgress) =>
 		this.setState({ searchInProgress });
-	handleFilteredItems = filteredItems => this.setState({ filteredItems });
-	handleSortedItems = sortedItems => this.setState({ tableData: sortedItems });
+	handleFilteredItems = (filteredItems) => this.setState({ filteredItems });
+	handleSortedItems = (sortedItems) =>
+		this.setState({ tableData: sortedItems });
+
+	orderTableData = () => {
+		const { tableData, columnHeaders } = this.props;
+		const orderedItems = tableData.map((item) => {
+			let obj = {};
+			columnHeaders.forEach((header) => {
+				const headerTitle = header.title.toLowerCase();
+				const entries = Object.entries(item);
+				const entry = entries.find((e) => e[0].toLowerCase() === headerTitle);
+				const keyValPair = Object.fromEntries([entry]);
+				obj = { ...obj, ...keyValPair };
+			});
+			return obj;
+		});
+
+		this.setState({ tableData: orderedItems });
+	};
+
 	render() {
 		const { columnHeaders, clickableRows } = this.props;
 		const { tableData, filteredItems, searchInProgress } = this.state;
@@ -52,8 +75,6 @@ class DataTable extends Component {
 }
 
 DataTable.defaultProps = {
-	tableData: [],
-	columnHeaders: [],
 	clickableRows: false,
 };
 
@@ -69,3 +90,29 @@ DataTable.propTypes = {
 };
 
 export { DataTable };
+
+/**
+ ***** orderTableData objective *******
+ *
+ * Creates a new list of objects with each key/value pair in the object in the same order as columnHeaders
+ *
+ * columnHeaders [
+ * 	{title: vehicle, sortable: true},
+ * 	{title: color, sortable: true},
+ * 	{title: price, sortable: true},
+ * ]
+ *
+ * tableData [
+ * 	{color: red, price: 100, vehicle: car},
+ * 	{color: blue, vehicle: bike, price: 200},
+ * 	{price: 4000, vehicle: place, color: grey},
+ * ]
+ *
+ * Expected Result
+ *
+ * tableData [
+ *  {vehicle: car, color: red, price: 100},
+ * 	{vehicle: bike, color: blue, price: 200},
+ * 	{vehicle: place, color: grey, price: 4000},
+ * ]
+ */

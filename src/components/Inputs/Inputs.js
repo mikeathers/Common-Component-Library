@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './Inputs.style';
 import { Input } from 'components/NewCommon';
 
-const Inputs = props => {
+const Inputs = (props) => {
 	return (
 		<S.Inputs>
 			<S.InputGroup>
@@ -36,7 +36,7 @@ const Inputs = props => {
 			<S.InputGroup>
 				<S.InputsContainer>
 					<p>Error Input</p>
-					<Input placeholder="First Name" value="Joe Bloggs" error />
+					<Input placeholder="First Name" error />
 				</S.InputsContainer>
 			</S.InputGroup>
 		</S.Inputs>

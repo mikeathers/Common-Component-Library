@@ -15,14 +15,20 @@ import TableRow from '../TableRow/TableRow';
 const TableBody = ({ tableData, selectRow, clickableRows }) => {
 	return (
 		<S.TableBody data-test="common-data-table-body">
-			{tableData.map((item, key) => (
-				<TableRow
-					key={key}
-					item={item}
-					selectRow={selectRow}
-					isClickable={clickableRows}
-				/>
-			))}
+			{tableData.length > 0 ? (
+				tableData.map((item, key) => (
+					<TableRow
+						key={key}
+						item={item}
+						selectRow={selectRow}
+						isClickable={clickableRows}
+					/>
+				))
+			) : (
+				<S.NoTableDataMessage>
+					No table data has been found...
+				</S.NoTableDataMessage>
+			)}
 		</S.TableBody>
 	);
 };

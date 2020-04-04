@@ -9,25 +9,25 @@ const columnHeaders = [
 	{ title: 'Price', sortable: true },
 	{ title: 'Height', sortable: true },
 	{ title: 'Width', sortable: true },
-	{ title: 'Weigth', sortable: true },
+	{ title: 'Weight', sortable: true },
 ];
 
 const tableData = [
 	{
-		vehicle: 'Car',
 		color: 'Red',
-		size: 'Medium',
-		price: 100,
 		height: 100,
 		width: 100,
+		vehicle: 'Car',
+		price: 100,
 		weight: 150,
+		size: 'Medium',
 	},
 	{
-		vehicle: 'Bike',
 		color: 'Blue',
 		size: 'Small',
 		price: 50,
 		height: 100,
+		vehicle: 'Bike',
 		width: 100,
 		weight: 150,
 	},
@@ -123,7 +123,7 @@ const tableData = [
 	},
 ];
 
-const DataTable = props => {
+const DataTable = () => {
 	return (
 		<S.DataTableContainer>
 			<CommonDataTable tableData={tableData} columnHeaders={columnHeaders} />
